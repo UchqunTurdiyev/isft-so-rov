@@ -24,8 +24,8 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
        <head>
        
-        {/* Meta Pixel Code */}
-        <script
+     {/* ✅ Meta Pixel Code */}
+     <script
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '8613965172038503');
+              fbq('init', '978023020768370');
               fbq('track', 'PageView');
             `,
           }}
@@ -46,10 +46,10 @@ export default function RootLayout({ children }) {
             height="1"
             width="1"
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=8613965172038503&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=978023020768370&ev=PageView&noscript=1"
           />
         </noscript>
-        {/* End Meta Pixel Code */}
+        {/* ✅ End Meta Pixel Code */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
