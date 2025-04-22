@@ -9,6 +9,8 @@ export default function FormPage() {
   const [telefon, setTelefon] = useState('')
   const [xato, setXato] = useState('')
   const [yuborildi, setYuborildi] = useState(false)
+  const [btn, setBtn] = useState(false)
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -69,8 +71,12 @@ export default function FormPage() {
 
         />
         <Link href={'https://www.instagram.com/isft_samarqand/'} className='w-full h-14'>
-        <button type="submit" className='w-full cursor-pointer text-white bg-yellow-400 rounded-md w-60 h-10'>
-          Jo‘natish
+
+        <button type="submit" onClick={() => setBtn(prev => !prev)} disabled={btn}
+      className={`w-full cursor-pointer text-white bg-yellow-400 rounded-md w-60 h-10 ${
+        btn ? 'opacity-50 cursor-not-allowed' : ''
+      }`} >
+          {btn ? 'Jo‘natish' : 'Jo‘natildi'}
         </button>
         </Link>
       </form>
