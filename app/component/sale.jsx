@@ -4,7 +4,7 @@ export default function Sale() {
   return (
     <div className='py-6'>
         <h3 className='text-lg font-semibold text-yellow-500'>Talaba bo‘lishni xohlaydiganlar diqqatiga!</h3>
-        <h1 className='text-2xl font-bold'>Bitta institutda o‘qib, ham O‘zbekiston, ham dunyo tan olgan diplom sohibi bo‘lishni xohlaysizmi?</h1>
+        <h1 className='text-2xl font-bold'>Birgina institutda tahsil olib, xalqaro va milliy darajadagi diplomga ega bo‘lishni istaysizmi?</h1>
         <h3 className='text-xl font-semibold  pt-4 pb-2'>E’tibor bering – aynan bizda!</h3>
         <ul className='flex flex-col gap-4 text-md font-semibold'>
             <li>🔸 100% to‘liq grant yutish imkoniyatini qo‘ldan boy bermang!</li>

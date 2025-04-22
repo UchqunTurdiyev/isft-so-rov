@@ -4,6 +4,8 @@ import img2 from '../../public/02-2.jpeg'
 import img3 from '../../public/03-2.jpeg'
 import gal from '../../public/0001.jpeg'
 import gal3 from '../../public/0003.jpeg'
+// import gal4 from '../../public/t1.JPG'
+// import gal5 from '../../public/t2.JPG'
 import Image from 'next/image'
 
 export default function About() {
@@ -33,10 +35,12 @@ export default function About() {
     </div>
 
     {/* Gallery ---------------- */}
-    <h1 className='text-2xl  pb-2 border-b-2 border-red-600'>Bizning talaba</h1>
+    <h1 className='text-2xl  pb-2 border-b-2 border-red-600'>Ijtimoiy faoliyat</h1>
     <div className="w-full grid grid-cols-2 gap-2 my-4">
-        <Image src={gal} alt="ISFT" layout='fit' className='object-cover'/>
-        <Image src={gal3} alt="ISFT" layout='fit' className='object-cover'/>
+    <Image src={gal} alt="ISFT" layout='fit' className='object-cover'/>
+    <Image src={gal3} alt="ISFT" layout='fit' className='object-cover'/>
+    <Image src="/t1.JPG" alt="ISFT" width={600} height={400} className="object-cover" />
+    {/* <Image src="/t2.JPG" alt="ISFT" width={600} height={400} className="object-cover" /> */}
     </div>
 
     </>
