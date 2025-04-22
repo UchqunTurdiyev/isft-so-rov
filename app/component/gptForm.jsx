@@ -72,11 +72,12 @@ export default function FormPage() {
         />
         <Link href={'https://www.instagram.com/isft_samarqand/'} className='w-full h-14'>
 
-        <button type="submit" onClick={() => setBtn(prev => !prev)} disabled={btn}
-      className={`w-full cursor-pointer text-white bg-yellow-400 rounded-md w-60 h-10 ${
-        btn ? 'opacity-50 cursor-not-allowed' : ''
-      }`} >
-          {btn ? 'Jo‘natish' : 'Jo‘natildi'}
+        <button type="submit" onClick={() => setBtn(prev => !prev)} 
+      className={`w-full cursor-pointer text-white bg-yellow-400 rounded-md w-60 h-10
+        ${
+          btn ? 'opacity-50 cursor-not-allowed' : ''
+        }`} >
+          {btn ? 'Yuborildi' : 'Jo‘natish'}
         </button>
         </Link>
       </form>
