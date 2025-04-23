@@ -4,23 +4,44 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function FormPage() {
-  const [ism, setIsm] = useState('')
-  const [familya, setFamilya] = useState('')
-  const [telefon, setTelefon] = useState('')
-  const [xato, setXato] = useState('')
-  const [yuborildi, setYuborildi] = useState(false)
-  const [btn, setBtn] = useState(false)
-
-
+  const [ism, setIsm] = useState('');
+  const [familya, setFamilya] = useState('');
+  const [telefon, setTelefon] = useState('');
+  const [xato, setXato] = useState('');
+  const [yuborildi, setYuborildi] = useState(false);
+  const [btn, setBtn] = useState(false);
+  
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+  
     if (!ism || !familya || !telefon) {
-      setXato('❌ Barcha maydonlarni to‘ldiring!')
-      return 
+      setXato('❌ Barcha maydonlarni to‘ldiring!');
+      return;
     }
-
-    setXato('')
+  
+    // 🔎 Qo‘shimcha validatsiyalar
+    if (ism.trim().length < 3) {
+      setXato('❌ Ism kamida 3 ta harfdan iborat bo‘lishi kerak!');
+      return;
+    }
+  
+    if (familya.trim().length < 3) {
+      setXato('❌ Familya kamida 3 ta harfdan iborat bo‘lishi kerak!');
+      return;
+    }
+  
+    const onlyNumbers = /^\d+$/;
+    if (!onlyNumbers.test(telefon)) {
+      setXato('❌ Telefon faqat raqamlardan iborat bo‘lishi kerak!');
+      return;
+    }
+  
+    if (telefon.length < 7) {
+      setXato('❌ Telefon raqami kamida 7 ta belgidan iborat bo‘lishi kerak!');
+      return;
+    }
+  
+    setXato('');
     try {
       const res = await fetch(
         'https://script.google.com/macros/s/AKfycbz2HLCIyjc5zDS7TNYkrFwyVdMdr0125KWKRurxgflYKzdnrk9yvG4euQdefp-ccHcGiw/exec',
@@ -28,20 +49,26 @@ export default function FormPage() {
           method: 'POST',
           body: JSON.stringify({ ism, familya, telefon }),
         }
-      )
-
+      );
+  
       if (res.ok) {
-        setYuborildi(true)
-        setIsm('')
-        setFamilya('')
-        setTelefon('')
+        setYuborildi(true);
+        setIsm('');
+        setFamilya('');
+        setTelefon('');
       } else {
-        setXato('❌ Jo‘natishda xatolik bo‘ldi.')
+        setXato('❌ Jo‘natishda xatolik bo‘ldi.');
       }
     } catch (err) {
-      setXato('❌ Internet bilan bog‘liq muammo.')
+      setXato('❌ Internet bilan bog‘liq muammo.');
     }
+  };
+
+  const handleInstagramRedirect = () => {
+    window.location.href = 'https://www.instagram.com/isft_samarqand/'; // bu yerga o'zingizning sahifa linkingizni qo'ying
   }
+  
+  
 
   return (
     <div className='w-full ' id='gptForms'>
@@ -63,23 +90,19 @@ export default function FormPage() {
           className='w-full px-2 h-12 border border-yellow-400 rounded-md'
         />
         <input
-          type="tel"
+          type="number"
           placeholder="Telefon raqam"
           value={telefon}
           onChange={(e) => setTelefon(e.target.value)}
           className='w-full px-2 h-12 border border-yellow-400 rounded-md'
 
         />
-        <Link href={'https://www.instagram.com/isft_samarqand/'} className='w-full h-14'>
 
-        <button type="submit" onClick={() => setBtn(prev => !prev)} 
-      className={`w-full cursor-pointer text-white bg-yellow-400 rounded-md w-60 h-10
-        ${
-          btn ? 'opacity-50 cursor-not-allowed' : ''
-        }`} >
-          {btn ? 'Yuborildi' : 'Jo‘natish'}
+
+        <button type="submit" onClick={handleInstagramRedirect}
+      className={`w-full cursor-pointer text-white bg-yellow-500 rounded-md w-60 h-10 hover:bg-wellow-600`} >
+         Yuborish
         </button>
-        </Link>
       </form>
       {xato && <p style={{ color: 'red' }}>{xato}</p>}
       {yuborildi && <p style={{ color: 'green' }}>✅ Muvaffaqiyatli yuborildi!</p>}
