@@ -9,17 +9,18 @@ export default function FormPage() {
   const [telefon, setTelefon] = useState('');
   const [xato, setXato] = useState('');
   const [yuborildi, setYuborildi] = useState(false);
-  const [btn, setBtn] = useState(false);
-  
+  const [btn, setBtn] = useState(false); // tugmani disable qilish uchun
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    if (btn) return; // agar allaqachon yuborilayotgan bo‘lsa — hech narsa qilmaydi
   
     if (!ism || !familya || !telefon) {
       setXato('❌ Barcha maydonlarni to‘ldiring!');
       return;
     }
   
-    // 🔎 Qo‘shimcha validatsiyalar
     if (ism.trim().length < 3) {
       setXato('❌ Ism kamida 3 ta harfdan iborat bo‘lishi kerak!');
       return;
@@ -41,7 +42,9 @@ export default function FormPage() {
       return;
     }
   
+    setBtn(true); // tugma bosilgach, o‘chadi
     setXato('');
+  
     try {
       const res = await fetch(
         'https://script.google.com/macros/s/AKfycbz2HLCIyjc5zDS7TNYkrFwyVdMdr0125KWKRurxgflYKzdnrk9yvG4euQdefp-ccHcGiw/exec',
@@ -51,23 +54,25 @@ export default function FormPage() {
         }
       );
   
-      if (res.ok) {
+      const responseText = await res.text();
+  
+      if (res.ok && responseText.toLowerCase().includes('success')) {
         setYuborildi(true);
         setIsm('');
         setFamilya('');
         setTelefon('');
+  
+        // ✅ Instagramga yo‘naltirish faqat shu yerda
+        window.location.href = 'https://www.instagram.com/isft_samarqand/';
       } else {
         setXato('❌ Jo‘natishda xatolik bo‘ldi.');
+        setBtn(false); // xatolik bo‘lsa, tugmani qayta yoqamiz
       }
     } catch (err) {
       setXato('❌ Internet bilan bog‘liq muammo.');
+      setBtn(false); // xatolik bo‘lsa, tugmani qayta yoqamiz
     }
   };
-
-  const handleInstagramRedirect = () => {
-    window.location.href = 'https://www.instagram.com/isft_samarqand/'; // bu yerga o'zingizning sahifa linkingizni qo'ying
-  }
-  
   
 
   return (
@@ -99,8 +104,8 @@ export default function FormPage() {
         />
 
 
-        <button type="submit" onClick={handleInstagramRedirect}
-      className={`w-full cursor-pointer text-white bg-yellow-500 rounded-md w-60 h-10 hover:bg-wellow-600`} >
+        <button type="submit"
+      className={`w-full cursor-pointer text-white bg-yellow-500 rounded-md w-60 h-10 hover:bg-wellow-600`} disabled={btn} >
          Yuborish
         </button>
       </form>
@@ -109,3 +114,4 @@ export default function FormPage() {
     </div>
   )
 }
+
