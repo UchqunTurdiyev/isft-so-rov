@@ -40,7 +40,7 @@ export default function About() {
     <div className="w-full grid grid-cols-2 gap-2 my-4">
     <Image src={gal} alt="ISFT" layout='fit' className='object-cover'/>
     <Image src={gal3} alt="ISFT" layout='fit' className='object-cover'/>
-    <Image src="/t1.JPG" alt="ISFT" width={600} height={400} className="object-cover" />
+    {/* <Image src="/t1.JPG" alt="ISFT" width={600} height={400} className="object-cover" /> */}
     {/* <Image src="/t2.JPG" alt="ISFT" width={600} height={400} className="object-cover" /> */}
     </div>
 
