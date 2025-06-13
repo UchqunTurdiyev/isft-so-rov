@@ -8,14 +8,15 @@ export default function Sale() {
         <h3 className='text-xl font-semibold  pt-4 pb-2'>E’tibor bering – aynan bizda!</h3>
         <ul className='flex flex-col gap-4 text-md font-semibold'>
             <li>🔸 100% to‘liq grant yutish imkoniyatini qo‘ldan boy bermang!</li>
-            <li>🔸 O‘qishni oxirigacha grant bilan davom ettiring!</li>
+            <li>🔸 Bizda masofaviy ta'lim mavjud</li>
+            <li>🔸 Koreyaning SongWon Universiteti bilan 2+2 dasturi</li>
             <li>🔸 Xalqaro ta’lim dasturlari (ACCA, CEFR, IELTS tan olinadi)</li>
             <li>🔸 Hamkor universitetlarimiz orqali siz Angliya, Turkiya, Malayziya va Indoneziya kabi davlatlarda Summer School, Work and Travel hamda malaka oshirish dasturlarida ishtirok etishingiz mumkin.</li>
             <li>🔸 Diplom HEMIS tizimi orqali rasmiylashtirilib, Oliy ta’lim vazirligi tomonidan beriladi.</li>
             <li>🔸 Amaliyot va stajirovkalar – nazariyani real tajriba bilan bog‘lash imkoniyati!.</li>
             <li>🔸 Talabalarimiz Bank va Soliq qo‘mitasi bilan hamkorlikdagi shartnomalar asosida amaliyot o‘tashadi va ish rezerviga olinadi!</li>
             <li>🔸 Ta’lim 3 tilda: UZ / RU / EN</li>
-            <li>🔸 Yotoqxona – bepul!  Uzoq hududlardan kelgan sirtqi ta’lim talabalari uchun ijtimoiy yordam sifatida bepul turar joy taqdim etiladi.</li>
+            {/* <li>🔸 Yotoqxona – bepul!  Uzoq hududlardan kelgan sirtqi ta’lim talabalari uchun ijtimoiy yordam sifatida bepul turar joy taqdim etiladi.</li> */}
             <li>🔸 Darslar — xalqaro darajadagi professorlar tomonidan olib boriladi!</li>
         </ul>
 

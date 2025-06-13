@@ -4,6 +4,7 @@ import img2 from '../../public/02-2.jpeg'
 import img3 from '../../public/03-2.jpeg'
 import gal from '../../public/0001.jpeg'
 import gal3 from '../../public/0003.jpeg'
+import acc from '../../public/acc.jpg'
 // import gal4 from '../../public/t1.JPG'
 // import gal5 from '../../public/t2.JPG'
 import Image from 'next/image'
@@ -15,8 +16,8 @@ export default function About() {
         <Image src={img1} alt="ISFT" layout='fit' className='object-cover'/>
         <Image src={img2} alt="ISFT" layout='fit' className='object-cover'/>
         <Image src={img3} alt="ISFT" layout='fit' className='object-cover'/>
-        {/* <Image src={im} alt="ISFT" layout='fit' className='object-cover'/>
-        <Image src={im3} alt="ISFT" layout='fit' className='object-cover'/> */}
+        <Image src={acc} alt="ISFT" layout='fit' className='object-cover'/>
+     
     </div>
 
     <div className="w-full py-10">
