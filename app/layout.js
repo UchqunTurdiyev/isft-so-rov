@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
        <head>
        
      {/* ✅ Meta Pixel Code */}
-     <script
+     {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
             src="https://www.facebook.com/tr?id=978023020768370&ev=PageView&noscript=1"
           />
         </noscript>
-        {/* ✅ End Meta Pixel Code */}
+        ✅ End Meta Pixel Code */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
